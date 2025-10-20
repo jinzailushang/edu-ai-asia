@@ -1,6 +1,6 @@
 # build output
 dist/
-.md
+
 # generated types
 .astro/
 
@@ -17,6 +17,14 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+
+# IDE and editor folders
+.history/
+.kiro/
+.vscode/
+
+# Documentation files (optional - uncomment if you don't want to track them)
+# *.md
 
 # macOS-specific files
 .DS_Store
