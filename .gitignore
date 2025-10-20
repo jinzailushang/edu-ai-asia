@@ -23,8 +23,9 @@ pnpm-debug.log*
 .kiro/
 .vscode/
 
-# Documentation files (optional - uncomment if you don't want to track them)
-# *.md
+# Documentation files - exclude all .md files except README.md
+*.md
+!README.md
 
 # macOS-specific files
 .DS_Store
