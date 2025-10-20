@@ -12,12 +12,12 @@
     },
     "seo": {
         "defaultTitle": {
-            "zh": "优质 AI 域名销售 | edu-ai.asia",
-            "en": "Premium AI Domain Names | edu-ai.asia"
+            "zh": "优质 AI 域名销售 - 打造您的品牌未来 | edu-ai.asia",
+            "en": "Premium AI Domain Names - Build Your Brand Future | edu-ai.asia"
         },
         "defaultDescription": {
-            "zh": "专业的 AI 域名销售平台，提供 edu-ai.chat、ai-healthcare.asia、aidesigner.asia 等优质域名，助力您的品牌发展",
-            "en": "Professional AI domain marketplace offering premium domains including edu-ai.chat, ai-healthcare.asia, aidesigner.asia for your brand"
+            "zh": "专业的 AI 域名销售平台，提供 edu-ai.chat、ai-healthcare.asia、ai-edu.asia、aidesigner.asia 等精选优质域名。涵盖 AI 教育、医疗健康、创意设计等热门领域，助力您在 AI 时代建立强大的品牌影响力，抢占市场先机。",
+            "en": "Professional AI domain marketplace offering curated premium domains including edu-ai.chat, ai-healthcare.asia, ai-edu.asia, aidesigner.asia. Covering hot sectors like AI education, healthcare, and creative design to help you build strong brand presence in the AI era and seize market opportunities."
         },
         "keywords": [
             "AI域名",
@@ -26,9 +26,22 @@
             "品牌域名",
             "AI教育域名",
             "AI医疗域名",
+            "AI设计域名",
+            "教育科技域名",
+            "医疗科技域名",
+            "创意设计域名",
+            "亚洲域名",
             "AI domain",
             "domain for sale",
-            "premium domain"
+            "premium domain",
+            "brand domain",
+            "AI education domain",
+            "AI healthcare domain",
+            "AI design domain",
+            "edtech domain",
+            "healthtech domain",
+            "creative design domain",
+            "Asia domain"
         ]
     },
     "analytics": {

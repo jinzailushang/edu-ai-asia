@@ -1,7 +1,7 @@
 {
     "site": {
-        "title": "优质 AI 域名销售",
-        "description": "专业的 AI 域名销售平台，提供优质域名助力您的品牌发展"
+        "title": "优质 AI 域名销售 - 打造您的品牌未来",
+        "description": "专业的 AI 域名销售平台，提供 edu-ai.chat、ai-healthcare.asia、aidesigner.asia 等精选优质域名，助力您在 AI 时代建立强大的品牌影响力"
     },
     "nav": {
         "home": "首页",
@@ -30,7 +30,7 @@
             "sold": "已售",
             "reserved": "保留"
         },
-        "featured": "推荐",
+        "featured": "精选推荐",
         "category": "分类",
         "useCases": "应用场景",
         "features": "关键特性",
@@ -38,12 +38,17 @@
         "allDomains": "全部域名",
         "featuredDomains": "精选优质域名",
         "noResults": "暂无符合条件的域名",
-        "filterAll": "全部"
+        "filterAll": "全部",
+        "registrationDate": "注册时间",
+        "whyChoose": "为什么选择这个域名",
+        "marketValue": "市场价值",
+        "investmentPotential": "投资潜力"
     },
     "hero": {
         "title": "优质 AI 域名 - 打造您的品牌未来",
-        "subtitle": "专业的 AI 域名销售平台，提供精选优质域名",
-        "cta": "立即咨询"
+        "subtitle": "精选 AI 教育、医疗、设计领域优质域名，助力您在 AI 时代抢占先机，建立行业领先品牌",
+        "cta": "立即咨询",
+        "trustBadge": "专业 · 可信 · 高效"
     },
     "footer": {
         "copyright": "版权所有",

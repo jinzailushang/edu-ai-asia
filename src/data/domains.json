@@ -1,4 +1,5 @@
-[{
+[
+    {
         "id": "edu-ai-chat",
         "name": "edu-ai.chat",
         "status": "available",
@@ -7,7 +8,7 @@
             "zh": {
                 "tagline": "AI 教育对话的完美域名",
                 "description": "专为 AI 教育聊天应用打造的优质域名，简洁易记，行业属性明确",
-                "fullDescription": "edu-ai.chat 是一个专为 AI 教育对话应用设计的优质域名。它完美结合了教育（edu）、人工智能（AI）和聊天（chat）三个核心元素，非常适合构建 AI 教育助手、智能学习对话系统、在线教育聊天平台等应用。域名简短易记，行业属性明确，具有极高的品牌价值和 SEO 优势。",
+                "fullDescription": "edu-ai.chat 是一个专为 AI 教育对话应用设计的顶级域名。它完美结合了教育（edu）、人工智能（AI）和聊天（chat）三个核心元素，精准定位于快速增长的 AI 教育市场。这个域名非常适合构建 AI 教育助手、智能学习对话系统、在线教育聊天平台、教学问答系统等创新应用。\n\n域名简短易记（仅 11 个字符），行业属性极其明确，具有极高的品牌识别度和 SEO 优势。.chat 顶级域名直观传达了对话交互的核心功能，让用户一眼就能理解您的产品定位。在全球 AI 教育市场规模预计将在 2027 年达到 200 亿美元的背景下，拥有这样一个精准的域名将为您的品牌带来巨大的竞争优势。",
                 "useCases": [
                     "AI 教育聊天机器人平台",
                     "智能学习助手应用",
@@ -57,7 +58,14 @@
             ]
         },
         "category": "AI教育 / AI Education",
-        "tags": ["教育", "AI", "聊天", "education", "chat", "AI"],
+        "tags": [
+            "教育",
+            "AI",
+            "聊天",
+            "education",
+            "chat",
+            "AI"
+        ],
         "priceRange": "面议 / Negotiable"
     },
     {
@@ -69,7 +77,7 @@
             "zh": {
                 "tagline": "亚洲 AI 医疗健康的首选域名",
                 "description": "专注亚洲市场的 AI 医疗健康域名，行业定位精准，地域特色鲜明",
-                "fullDescription": "ai-healthcare.asia 是一个专为亚洲 AI 医疗健康领域打造的优质域名。它清晰地传达了人工智能医疗健康的核心定位，同时通过 .asia 顶级域名强调了亚洲市场的地域特色。非常适合构建 AI 医疗诊断平台、智能健康管理系统、医疗数据分析服务等应用。域名专业性强，易于建立行业权威形象。",
+                "fullDescription": "ai-healthcare.asia 是一个专为亚洲 AI 医疗健康领域打造的顶级域名。它清晰地传达了人工智能医疗健康的核心定位，同时通过 .asia 顶级域名强调了亚洲市场的地域特色和战略重点。这个域名非常适合构建 AI 医疗诊断平台、智能健康管理系统、医疗数据分析服务、远程医疗咨询平台等创新应用。\n\n亚洲是全球人口最多、医疗需求最旺盛的地区，AI 医疗健康市场正在经历爆发式增长。域名专业性强，易于建立行业权威形象，SEO 优势明显。无论您是医疗科技创业公司、医疗机构、健康管理平台，还是 AI 研究机构，这个域名都将为您的品牌带来强大的市场认知度和竞争优势。",
                 "useCases": [
                     "AI 医疗诊断平台",
                     "智能健康管理系统",
@@ -119,7 +127,15 @@
             ]
         },
         "category": "AI医疗 / AI Healthcare",
-        "tags": ["医疗", "健康", "AI", "亚洲", "healthcare", "AI", "Asia"],
+        "tags": [
+            "医疗",
+            "健康",
+            "AI",
+            "亚洲",
+            "healthcare",
+            "AI",
+            "Asia"
+        ],
         "priceRange": "面议 / Negotiable"
     },
     {
@@ -131,7 +147,7 @@
             "zh": {
                 "tagline": "亚洲 AI 设计师平台的理想域名",
                 "description": "专为 AI 设计工具和平台打造，聚焦亚洲创意设计市场",
-                "fullDescription": "aidesigner.asia 是一个专为 AI 设计工具和平台打造的优质域名。它完美结合了人工智能（AI）和设计师（designer）两个核心概念，通过 .asia 顶级域名强调亚洲市场定位。非常适合构建 AI 设计工具、智能创意平台、设计师社区等应用。域名简洁专业，易于品牌传播。",
+                "fullDescription": "aidesigner.asia 是一个专为 AI 设计工具和平台打造的顶级域名。它完美结合了人工智能（AI）和设计师（designer）两个核心概念，通过 .asia 顶级域名强调亚洲市场定位和创意产业的蓬勃发展。这个域名非常适合构建 AI 设计工具、智能创意平台、设计师社区、AI 辅助设计 SaaS、创意设计教育平台等应用。\n\n亚洲拥有全球最大的设计师群体和最活跃的创意产业市场。随着 AI 技术在设计领域的深度应用，从图形设计、UI/UX 设计到工业设计、建筑设计，AI 正在革新整个设计行业。aidesigner.asia 域名简洁专业，易于品牌传播，将帮助您在这个快速增长的市场中占据有利位置。",
                 "useCases": [
                     "AI 设计工具平台",
                     "智能创意生成系统",
@@ -181,7 +197,16 @@
             ]
         },
         "category": "AI设计 / AI Design",
-        "tags": ["设计", "AI", "创意", "亚洲", "design", "AI", "creative", "Asia"],
+        "tags": [
+            "设计",
+            "AI",
+            "创意",
+            "亚洲",
+            "design",
+            "AI",
+            "creative",
+            "Asia"
+        ],
         "priceRange": "面议 / Negotiable"
     },
     {
@@ -193,7 +218,7 @@
             "zh": {
                 "tagline": "AI 设计师的创新域名",
                 "description": "使用 .xin 域名，代表创新和信任，适合 AI 设计平台",
-                "fullDescription": "aidesigner.xin 是一个富有创意的 AI 设计域名。.xin 在中文中意为新和信，既代表创新，又象征信任。非常适合构建创新型 AI 设计工具、设计师社区平台、智能创意生成系统等应用。域名简洁专业，易于中文市场推广。",
+                "fullDescription": "aidesigner.xin 是一个富有创意和文化内涵的 AI 设计域名。.xin 在中文中意为「新」和「信」，既代表创新、新颖、新时代，又象征信任、诚信、可信赖。这个双重寓意使得域名特别适合在中国市场推广，能够快速建立品牌认知和用户信任。\n\n域名非常适合构建创新型 AI 设计工具、设计师社区平台、智能创意生成系统、设计教育平台等应用。.xin 域名在中国市场具有独特的文化认同感，易于本地化营销和品牌传播。无论您是面向中国市场的设计科技创业公司，还是希望在中文用户群体中建立影响力的国际品牌，aidesigner.xin 都是一个极具价值的选择。",
                 "useCases": [
                     "AI 设计工具平台",
                     "智能创意生成系统",
@@ -232,10 +257,24 @@
             }
         },
         "seo": {
-            "keywords": ["AI设计", "智能设计", "设计工具", "AI designer", "design tool", "creative AI"]
+            "keywords": [
+                "AI设计",
+                "智能设计",
+                "设计工具",
+                "AI designer",
+                "design tool",
+                "creative AI"
+            ]
         },
         "category": "AI设计 / AI Design",
-        "tags": ["设计", "AI", "创新", "design", "AI", "innovation"],
+        "tags": [
+            "设计",
+            "AI",
+            "创新",
+            "design",
+            "AI",
+            "innovation"
+        ],
         "priceRange": "面议 / Negotiable"
     },
     {
@@ -247,7 +286,7 @@
             "zh": {
                 "tagline": "全球化的 AI 设计师域名",
                 "description": "使用 .icu 域名，I See You - 我看见你，强调用户关注",
-                "fullDescription": "aidesigner.icu 是一个独特的 AI 设计域名。.icu 可以理解为 'I See You'（我看见你），强调对用户的关注和理解。非常适合构建以用户为中心的 AI 设计工具、个性化设计平台、智能设计助手等应用。域名新颖独特，易于国际化推广。",
+                "fullDescription": "aidesigner.icu 是一个独特且富有创意的 AI 设计域名。.icu 可以理解为 'I See You'（我看见你），强调对用户的关注、理解和个性化服务。这个域名传达了以用户为中心的设计理念，非常适合构建注重用户体验、个性化定制、智能推荐的 AI 设计工具和平台。\n\n在设计领域，理解用户需求是成功的关键。aidesigner.icu 通过域名本身就传达了这一核心价值观，能够快速与目标用户建立情感连接。域名新颖独特，易于国际化推广，特别适合面向年轻用户群体、注重用户体验的设计产品。无论是个性化设计工具、用户中心的设计平台，还是智能设计助手，这个域名都能完美契合您的品牌定位。",
                 "useCases": [
                     "用户中心的 AI 设计工具",
                     "个性化设计平台",
@@ -286,10 +325,24 @@
             }
         },
         "seo": {
-            "keywords": ["AI设计", "用户体验", "设计工具", "AI designer", "UX design", "design tool"]
+            "keywords": [
+                "AI设计",
+                "用户体验",
+                "设计工具",
+                "AI designer",
+                "UX design",
+                "design tool"
+            ]
         },
         "category": "AI设计 / AI Design",
-        "tags": ["设计", "AI", "用户体验", "design", "AI", "UX"],
+        "tags": [
+            "设计",
+            "AI",
+            "用户体验",
+            "design",
+            "AI",
+            "UX"
+        ],
         "priceRange": "面议 / Negotiable"
     },
     {
@@ -301,7 +354,7 @@
             "zh": {
                 "tagline": "AI 设计师团队协作域名",
                 "description": "使用 .group 域名，强调团队和社区属性",
-                "fullDescription": "aidesigner.group 是一个强调团队协作的 AI 设计域名。.group 清晰地传达了团队、社区、协作的概念。非常适合构建设计师团队协作平台、AI 设计社区、创意工作室集群、设计师联盟等应用。域名专业且具有社交属性。",
+                "fullDescription": "aidesigner.group 是一个强调团队协作和社区属性的 AI 设计域名。.group 清晰地传达了团队、社区、协作、联盟的概念，非常适合构建设计师团队协作平台、AI 设计社区、创意工作室集群、设计师联盟、设计项目管理平台等应用。\n\n在现代设计工作中，团队协作已经成为常态。从跨职能团队协作到远程设计团队，从设计系统管理到版本控制，设计师们需要强大的协作工具和活跃的社区支持。aidesigner.group 完美契合这一需求，域名专业且具有强烈的社交属性，易于建立社群品牌和用户归属感。无论您是打造设计协作工具、建立设计师社区，还是组建设计师联盟，这个域名都将为您的品牌带来独特的价值。",
                 "useCases": [
                     "设计师团队协作平台",
                     "AI 设计社区",
@@ -340,10 +393,26 @@
             }
         },
         "seo": {
-            "keywords": ["AI设计", "团队协作", "设计社区", "AI designer", "team collaboration", "design community"]
+            "keywords": [
+                "AI设计",
+                "团队协作",
+                "设计社区",
+                "AI designer",
+                "team collaboration",
+                "design community"
+            ]
         },
         "category": "AI设计 / AI Design",
-        "tags": ["设计", "AI", "团队", "社区", "design", "AI", "team", "community"],
+        "tags": [
+            "设计",
+            "AI",
+            "团队",
+            "社区",
+            "design",
+            "AI",
+            "team",
+            "community"
+        ],
         "priceRange": "面议 / Negotiable"
     },
     {
@@ -355,7 +424,7 @@
             "zh": {
                 "tagline": "青岛大金商业域名",
                 "description": "适合青岛地区企业或大金品牌相关业务",
-                "fullDescription": "qd-dajin.com 是一个具有地域和品牌特色的商业域名。qd 可代表青岛（Qingdao），dajin 可代表大金品牌或大金融等概念。非常适合青岛地区的企业、金融服务、商贸公司、品牌代理等业务使用。域名简洁专业，易于本地市场推广。",
+                "fullDescription": "qd-dajin.com 是一个具有地域和品牌特色的优质商业域名。qd 可代表青岛（Qingdao），中国重要的沿海城市和经济中心；dajin 可代表大金品牌、大金融、大金属等多重含义。这个域名非常适合青岛地区的企业、金融服务机构、商贸公司、品牌代理商、制造业企业等使用。\n\n青岛作为中国重要的港口城市和制造业基地，拥有强大的经济实力和商业氛围。qd-dajin.com 域名简洁专业，使用 .com 顶级域名，具有极高的商业价值和品牌认可度。无论您是本地企业希望建立区域品牌影响力，还是外地企业希望进入青岛市场，这个域名都将为您的业务发展提供有力支持。域名易于本地化营销，便于口头传播，是建立青岛地区商业品牌的理想选择。",
                 "useCases": [
                     "青岛地区企业官网",
                     "金融服务平台",
@@ -394,10 +463,26 @@
             }
         },
         "seo": {
-            "keywords": ["青岛", "大金", "商业", "金融", "Qingdao", "Dajin", "business", "finance"]
+            "keywords": [
+                "青岛",
+                "大金",
+                "商业",
+                "金融",
+                "Qingdao",
+                "Dajin",
+                "business",
+                "finance"
+            ]
         },
         "category": "商业 / Business",
-        "tags": ["青岛", "商业", "金融", "Qingdao", "business", "finance"],
+        "tags": [
+            "青岛",
+            "商业",
+            "金融",
+            "Qingdao",
+            "business",
+            "finance"
+        ],
         "priceRange": "面议 / Negotiable"
     },
     {
@@ -409,7 +494,7 @@
             "zh": {
                 "tagline": "有趣的 AI 设计师域名",
                 "description": "充满创意和趣味的 AI 设计工具域名，适合年轻化、创新型设计平台",
-                "fullDescription": "aidesigner.fun 是一个充满活力和创意的 AI 设计域名。.fun 顶级域名传达了轻松、有趣、创新的品牌形象，非常适合面向年轻设计师、创意工作者的 AI 设计工具和平台。这个域名能够帮助您打造一个充满活力、易于接近的品牌形象，在竞争激烈的设计工具市场中脱颖而出。",
+                "fullDescription": "aidesigner.fun 是一个充满活力和创意的 AI 设计域名。.fun 顶级域名传达了轻松、有趣、创新的品牌形象，非常适合面向年轻设计师、创意工作者、设计爱好者的 AI 设计工具和平台。这个域名能够帮助您打造一个充满活力、易于接近的品牌形象，在竞争激烈的设计工具市场中脱颖而出。\n\n在严肃的专业设计工具之外，市场需要更多有趣、易用、降低门槛的设计产品。aidesigner.fun 完美契合这一定位，适合打造面向大众的 AI 设计工具、趣味创意生成器、设计游戏化学习平台等产品。域名易于记忆，充满亲和力，特别适合社交媒体营销和病毒式传播。",
                 "useCases": [
                     "趣味 AI 设计工具",
                     "创意设计社区平台",
@@ -448,10 +533,27 @@
             }
         },
         "seo": {
-            "keywords": ["AI设计", "趣味设计", "创意工具", "设计社区", "AI designer", "fun design", "creative tool"]
+            "keywords": [
+                "AI设计",
+                "趣味设计",
+                "创意工具",
+                "设计社区",
+                "AI designer",
+                "fun design",
+                "creative tool"
+            ]
         },
         "category": "AI设计 / AI Design",
-        "tags": ["设计", "AI", "创意", "趣味", "design", "AI", "creative", "fun"],
+        "tags": [
+            "设计",
+            "AI",
+            "创意",
+            "趣味",
+            "design",
+            "AI",
+            "creative",
+            "fun"
+        ],
         "priceRange": "面议 / Negotiable"
     },
     {
@@ -463,7 +565,7 @@
             "zh": {
                 "tagline": "亚洲 AI 教育的专业域名",
                 "description": "专注亚洲市场的 AI 教育域名，简洁专业，地域定位清晰",
-                "fullDescription": "ai-edu.asia 是一个专为亚洲 AI 教育领域打造的优质域名。它简洁地传达了人工智能教育的核心定位，同时通过 .asia 顶级域名强调了亚洲市场的地域特色。非常适合构建 AI 教育平台、在线学习系统、教育科技公司、AI 培训机构等应用。域名简短专业，易于品牌传播和记忆。",
+                "fullDescription": "ai-edu.asia 是一个专为亚洲 AI 教育领域打造的顶级域名。它简洁地传达了人工智能教育的核心定位，同时通过 .asia 顶级域名强调了亚洲市场的地域特色和战略重点。这个域名非常适合构建 AI 教育平台、在线学习系统、教育科技公司、AI 培训机构、智能教育解决方案等应用。\n\n域名简短专业（仅 11 个字符），易于品牌传播和记忆，SEO 优势明显。亚洲是全球教育需求最旺盛的地区，拥有超过 40 亿人口和快速增长的教育科技市场。ai-edu.asia 将帮助您在这个充满机遇的市场中建立强大的品牌影响力，成为 AI 教育领域的领导者。",
                 "useCases": [
                     "AI 教育平台",
                     "在线学习系统",
@@ -502,10 +604,28 @@
             }
         },
         "seo": {
-            "keywords": ["AI教育", "智能教育", "在线学习", "教育科技", "AI education", "smart education", "online learning", "edtech"]
+            "keywords": [
+                "AI教育",
+                "智能教育",
+                "在线学习",
+                "教育科技",
+                "AI education",
+                "smart education",
+                "online learning",
+                "edtech"
+            ]
         },
         "category": "AI教育 / AI Education",
-        "tags": ["教育", "AI", "亚洲", "在线学习", "education", "AI", "Asia", "e-learning"],
+        "tags": [
+            "教育",
+            "AI",
+            "亚洲",
+            "在线学习",
+            "education",
+            "AI",
+            "Asia",
+            "e-learning"
+        ],
         "priceRange": "面议 / Negotiable"
     }
 ]

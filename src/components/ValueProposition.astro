@@ -9,18 +9,18 @@ interface Props {
 const { locale } = Astro.props;
 ---
 
-<section class="py-16 bg-gradient-to-br from-blue-50 to-white">
+<section class="py-12 sm:py-16 bg-gradient-to-br from-blue-50 to-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
       <!-- 左侧：文字内容 -->
       <div>
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
           {locale === 'zh' 
             ? 'AI 时代，域名是您品牌的第一印象'
             : 'In the AI Era, Your Domain is Your First Impression'}
         </h2>
         
-        <p class="text-lg text-gray-600 mb-6">
+        <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
           {locale === 'zh'
             ? '随着人工智能技术的快速发展，AI 相关的优质域名变得越来越稀缺和珍贵。一个好的域名不仅能提升品牌形象，还能带来更好的 SEO 效果和用户信任。'
             : 'With the rapid development of AI technology, premium AI-related domains are becoming increasingly scarce and valuable. A good domain not only enhances brand image but also brings better SEO results and user trust.'}

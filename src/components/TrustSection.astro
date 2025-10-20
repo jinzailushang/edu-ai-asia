@@ -59,14 +59,14 @@ const icons = {
 };
 ---
 
-<section class="py-16 bg-white">
+<section class="py-12 sm:py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- 标题 -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+    <div class="text-center mb-8 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
         {locale === 'zh' ? '为什么选择我们' : 'Why Choose Us'}
       </h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-2">
         {locale === 'zh' 
           ? '专业、安全、高效的域名交易服务，让您放心购买优质域名'
           : 'Professional, secure, and efficient domain transaction service for your peace of mind'}
@@ -74,23 +74,23 @@ const icons = {
     </div>
     
     <!-- 特性网格 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
       {features.map((feature) => (
-        <div class="group relative p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300">
+        <div class="group relative p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 active:scale-98">
           <!-- 图标 -->
-          <div class="w-14 h-14 bg-gradient-to-br from-primary to-gradient-end rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-primary to-gradient-end rounded-lg flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform flex-shrink-0">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[feature.icon]} />
             </svg>
           </div>
           
           <!-- 标题 -->
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
             {feature.title}
           </h3>
           
           <!-- 描述 -->
-          <p class="text-gray-600">
+          <p class="text-sm sm:text-base text-gray-600">
             {feature.description}
           </p>
           

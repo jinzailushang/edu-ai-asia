@@ -1,7 +1,7 @@
 {
     "site": {
-        "title": "Premium AI Domain Names",
-        "description": "Professional AI domain marketplace offering premium domains for your brand"
+        "title": "Premium AI Domain Names - Build Your Brand Future",
+        "description": "Professional AI domain marketplace offering curated premium domains including edu-ai.chat, ai-healthcare.asia, aidesigner.asia to help you establish strong brand presence in the AI era"
     },
     "nav": {
         "home": "Home",
@@ -30,7 +30,7 @@
             "sold": "Sold",
             "reserved": "Reserved"
         },
-        "featured": "Featured",
+        "featured": "Premium Featured",
         "category": "Category",
         "useCases": "Use Cases",
         "features": "Features",
@@ -38,12 +38,17 @@
         "allDomains": "All Domains",
         "featuredDomains": "Premium Selected Domains",
         "noResults": "No domains match your criteria",
-        "filterAll": "All"
+        "filterAll": "All",
+        "registrationDate": "Registration Date",
+        "whyChoose": "Why Choose This Domain",
+        "marketValue": "Market Value",
+        "investmentPotential": "Investment Potential"
     },
     "hero": {
         "title": "Premium AI Domains - Build Your Brand Future",
-        "subtitle": "Professional AI domain marketplace with curated premium domains",
-        "cta": "Contact Now"
+        "subtitle": "Curated premium domains in AI education, healthcare, and design sectors. Seize the opportunity in the AI era and build an industry-leading brand",
+        "cta": "Contact Now",
+        "trustBadge": "Professional · Trusted · Efficient"
     },
     "footer": {
         "copyright": "Copyright",
