@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+
+const locale = 'en';
+const translations = await import(`../../locales/${locale}/common.json`);
+const t = translations.default;
+---
+
+<BaseLayout locale={locale} title="Multilingual Test Page">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Multilingual Feature Test</h1>
+        <LanguageSwitcher locale={locale} currentPath={Astro.url.pathname} />
+      </div>
+      
+      <div class="space-y-6">
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">Site Information</h2>
+          <dl class="grid grid-cols-2 gap-4">
+            <div>
+              <dt class="font-medium text-gray-600">Title:</dt>
+              <dd class="text-gray-900">{t.site.title}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-600">Description:</dt>
+              <dd class="text-gray-900">{t.site.description}</dd>
+            </div>
+          </dl>
+        </section>
+        
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">Navigation Menu</h2>
+          <ul class="flex gap-4">
+            <li class="px-4 py-2 bg-gray-100 rounded">{t.nav.home}</li>
+            <li class="px-4 py-2 bg-gray-100 rounded">{t.nav.about}</li>
+            <li class="px-4 py-2 bg-gray-100 rounded">{t.nav.domains}</li>
+            <li class="px-4 py-2 bg-gray-100 rounded">{t.nav.contact}</li>
+          </ul>
+        </section>
+        
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">Call-to-Action Buttons</h2>
+          <div class="flex gap-3 flex-wrap">
+            <button class="px-6 py-2 bg-primary text-white rounded-lg">{t.cta.contact}</button>
+            <button class="px-6 py-2 bg-primary text-white rounded-lg">{t.cta.getQuote}</button>
+            <button class="px-6 py-2 bg-primary text-white rounded-lg">{t.cta.viewDetails}</button>
+            <button class="px-6 py-2 bg-primary text-white rounded-lg">{t.cta.callNow}</button>
+          </div>
+        </section>
+        
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">Domain Status</h2>
+          <div class="flex gap-3">
+            <span class="px-4 py-2 bg-green-100 text-green-800 rounded">{t.domain.status.available}</span>
+            <span class="px-4 py-2 bg-red-100 text-red-800 rounded">{t.domain.status.sold}</span>
+            <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded">{t.domain.status.reserved}</span>
+          </div>
+        </section>
+        
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">Contact Methods</h2>
+          <dl class="grid grid-cols-2 gap-4">
+            <div>
+              <dt class="font-medium text-gray-600">{t.contact.phone}:</dt>
+              <dd class="text-gray-900">13352963461</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-600">{t.contact.email}:</dt>
+              <dd class="text-gray-900">contact@edu-ai.asia</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-600">{t.contact.wechat}:</dt>
+              <dd class="text-gray-900">WeChat ID</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-600">{t.contact.whatsapp}:</dt>
+              <dd class="text-gray-900">+86 13352963461</dd>
+            </div>
+          </dl>
+        </section>
+        
+        <section>
+          <h2 class="text-xl font-semibold mb-4 text-primary">Language Detection Info</h2>
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="mb-2"><strong>Current Language:</strong> <span id="current-lang">{locale}</span></p>
+            <p class="mb-2"><strong>Browser Language:</strong> <span id="browser-lang"></span></p>
+            <p class="mb-2"><strong>Saved Language Preference:</strong> <span id="saved-lang"></span></p>
+            <p class="mb-2"><strong>First Visit:</strong> <span id="first-visit"></span></p>
+          </div>
+        </section>
+        
+        <section class="bg-gray-50 p-6 rounded-lg">
+          <h2 class="text-xl font-semibold mb-4 text-primary">Test Instructions</h2>
+          <ol class="list-decimal list-inside space-y-2 text-gray-700">
+            <li>Click the language switcher in the top right to switch languages</li>
+            <li>Refresh the page to check if language preference is saved</li>
+            <li>Clear localStorage, refresh page, check if browser language is auto-detected</li>
+            <li>Open the site in a new tab to check if it auto-redirects to preferred language</li>
+          </ol>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Display language detection information
+  document.addEventListener('DOMContentLoaded', () => {
+    const browserLangEl = document.getElementById('browser-lang');
+    const savedLangEl = document.getElementById('saved-lang');
+    const firstVisitEl = document.getElementById('first-visit');
+    
+    if (browserLangEl) {
+      browserLangEl.textContent = navigator.language;
+    }
+    
+    if (savedLangEl) {
+      const savedLang = localStorage.getItem('preferred-language');
+      savedLangEl.textContent = savedLang || 'Not set';
+    }
+    
+    if (firstVisitEl) {
+      const hasVisited = sessionStorage.getItem('has-visited');
+      firstVisitEl.textContent = hasVisited ? 'No' : 'Yes';
+    }
+    
+    // Listen for language change events
+    window.addEventListener('languageChanged', (e) => {
+      console.log('Language changed event:', e.detail);
+      if (savedLangEl) {
+        savedLangEl.textContent = e.detail.language;
+      }
+    });
+  });
+</script>

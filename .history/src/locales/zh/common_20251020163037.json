@@ -1,0 +1,39 @@
+{
+    "site": {
+        "title": "优质 AI 域名销售",
+        "description": "专业的 AI 域名销售平台，提供优质域名助力您的品牌发展"
+    },
+    "nav": {
+        "home": "首页",
+        "about": "关于我们",
+        "domains": "域名列表"
+    },
+    "cta": {
+        "contact": "立即咨询",
+        "getQuote": "获取报价",
+        "viewDetails": "查看详情"
+    },
+    "contact": {
+        "phone": "电话",
+        "email": "邮箱",
+        "wechat": "微信",
+        "whatsapp": "WhatsApp"
+    },
+    "domain": {
+        "status": {
+            "available": "可售",
+            "sold": "已售",
+            "reserved": "保留"
+        },
+        "featured": "推荐",
+        "category": "分类",
+        "useCases": "应用场景",
+        "features": "关键特性",
+        "priceRange": "价格范围"
+    },
+    "hero": {
+        "title": "优质 AI 域名 - 打造您的品牌未来",
+        "subtitle": "专业的 AI 域名销售平台，提供精选优质域名",
+        "cta": "立即咨询"
+    }
+}

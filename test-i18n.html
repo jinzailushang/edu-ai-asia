@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多语言功能测试</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .test-container {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2563eb;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            color: #1e40af;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
+        .test-item {
+            padding: 12px;
+            margin: 8px 0;
+            border-left: 4px solid #e5e7eb;
+            background: #f9fafb;
+        }
+
+        .test-item.pass {
+            border-left-color: #10b981;
+            background: #ecfdf5;
+        }
+
+        .test-item.fail {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .test-item.pending {
+            border-left-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 8px 8px 8px 0;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button.secondary {
+            background: #6b7280;
+        }
+
+        button.secondary:hover {
+            background: #4b5563;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 16px 0;
+        }
+
+        .code {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-container">
+        <h1>🌐 多语言功能测试套件</h1>
+
+        <div class="info-box">
+            <strong>测试目标：</strong>验证网站的多语言切换、自动检测和偏好保存功能
+        </div>
+
+        <h2>当前状态</h2>
+        <div id="status-info">
+            <p><strong>浏览器语言：</strong> <span id="browser-lang"></span></p>
+            <p><strong>保存的语言偏好：</strong> <span id="saved-lang"></span></p>
+            <p><strong>会话状态：</strong> <span id="session-status"></span></p>
+        </div>
+
+        <h2>测试操作</h2>
+        <div>
+            <button onclick="testLanguageDetection()">1. 测试浏览器语言检测</button>
+            <button onclick="testLanguageSave()">2. 测试语言偏好保存</button>
+            <button onclick="testLanguageSwitch()">3. 测试语言切换</button>
+            <button onclick="clearAllData()" class="secondary">清除所有数据</button>
+        </div>
+
+        <h2>测试结果</h2>
+        <div id="test-results"></div>
+
+        <h2>测试步骤说明</h2>
+        <div class="test-item">
+            <h3>步骤 1: 浏览器语言检测</h3>
+            <ol>
+                <li>清除所有 localStorage 和 sessionStorage 数据</li>
+                <li>访问网站首页</li>
+                <li>检查是否根据浏览器语言自动跳转到对应语言版本</li>
+            </ol>
+        </div>
+
+        <div class="test-item">
+            <h3>步骤 2: 语言偏好保存</h3>
+            <ol>
+                <li>在网站上切换语言</li>
+                <li>检查 localStorage 中是否保存了语言偏好</li>
+                <li>刷新页面，验证语言是否保持</li>
+            </ol>
+        </div>
+
+        <div class="test-item">
+            <h3>步骤 3: 语言切换功能</h3>
+            <ol>
+                <li>点击语言切换按钮</li>
+                <li>验证 URL 是否正确更新</li>
+                <li>验证页面内容是否切换到目标语言</li>
+                <li>验证语言偏好是否保存</li>
+            </ol>
+        </div>
+
+        <h2>实现代码示例</h2>
+        <div class="code">
+            // 语言检测函数
+            function detectBrowserLanguage() {
+            const browserLang = navigator.language.toLowerCase();
+            if (browserLang.startsWith('zh')) return 'zh';
+            if (browserLang.startsWith('en')) return 'en';
+            return 'zh'; // 默认中文
+            }
+
+            // 保存语言偏好
+            function saveLanguagePreference(lang) {
+            localStorage.setItem('preferred-language', lang);
+            }
+
+            // 获取语言偏好
+            function getLanguagePreference() {
+            return localStorage.getItem('preferred-language')
+            || detectBrowserLanguage();
+            }
+        </div>
+    </div>
+
+    <script>
+        // 更新状态信息
+        function updateStatus() {
+            document.getElementById('browser-lang').textContent = navigator.language;
+            document.getElementById('saved-lang').textContent =
+                localStorage.getItem('preferred-language') || '未设置';
+            document.getElementById('session-status').textContent =
+                sessionStorage.getItem('has-visited') ? '已访问' : '首次访问';
+        }
+
+        // 添加测试结果
+        function addTestResult(name, status, message) {
+            const resultsDiv = document.getElementById('test-results');
+            const testItem = document.createElement('div');
+            testItem.className = `test-item ${status}`;
+
+            const statusEmoji = {
+                pass: '✅',
+                fail: '❌',
+                pending: '⏳'
+            };
+
+            testItem.innerHTML = `
+        <strong>${statusEmoji[status]} ${name}</strong>
+        <p>${message}</p>
+      `;
+
+            resultsDiv.appendChild(testItem);
+        }
+
+        // 测试 1: 浏览器语言检测
+        function testLanguageDetection() {
+            const browserLang = navigator.language.toLowerCase();
+            let detectedLang = 'zh';
+
+            if (browserLang.startsWith('zh')) {
+                detectedLang = 'zh';
+            } else if (browserLang.startsWith('en')) {
+                detectedLang = 'en';
+            }
+
+            addTestResult(
+                '浏览器语言检测',
+                'pass',
+                `检测到浏览器语言: ${navigator.language}，应该使用: ${detectedLang}`
+            );
+
+            updateStatus();
+        }
+
+        // 测试 2: 语言偏好保存
+        function testLanguageSave() {
+            // 测试保存中文
+            localStorage.setItem('preferred-language', 'zh');
+            const savedZh = localStorage.getItem('preferred-language');
+
+            if (savedZh === 'zh') {
+                addTestResult(
+                    '保存中文偏好',
+                    'pass',
+                    '成功保存中文语言偏好到 localStorage'
+                );
+            } else {
+                addTestResult(
+                    '保存中文偏好',
+                    'fail',
+                    '保存中文语言偏好失败'
+                );
+            }
+
+            // 测试保存英文
+            localStorage.setItem('preferred-language', 'en');
+            const savedEn = localStorage.getItem('preferred-language');
+
+            if (savedEn === 'en') {
+                addTestResult(
+                    '保存英文偏好',
+                    'pass',
+                    '成功保存英文语言偏好到 localStorage'
+                );
+            } else {
+                addTestResult(
+                    '保存英文偏好',
+                    'fail',
+                    '保存英文语言偏好失败'
+                );
+            }
+
+            updateStatus();
+        }
+
+        // 测试 3: 语言切换
+        function testLanguageSwitch() {
+            addTestResult(
+                '语言切换测试',
+                'pending',
+                '请手动访问网站并点击语言切换按钮进行测试'
+            );
+
+            addTestResult(
+                '测试链接',
+                'pending',
+                '中文版: http://localhost:4321/ | 英文版: http://localhost:4321/en/ | 测试页: http://localhost:4321/test-i18n'
+            );
+        }
+
+        // 清除所有数据
+        function clearAllData() {
+            localStorage.clear();
+            sessionStorage.clear();
+            addTestResult(
+                '清除数据',
+                'pass',
+                '已清除所有 localStorage 和 sessionStorage 数据'
+            );
+            updateStatus();
+        }
+
+        // 页面加载时更新状态
+        updateStatus();
+
+        // 添加初始提示
+        addTestResult(
+            '测试准备',
+            'pass',
+            '测试环境已就绪，请按顺序执行测试'
+        );
+    </script>
+</body>
+
+</html>

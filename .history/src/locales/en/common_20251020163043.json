@@ -1,0 +1,39 @@
+{
+    "site": {
+        "title": "Premium AI Domain Names",
+        "description": "Professional AI domain marketplace offering premium domains for your brand"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "domains": "Domains"
+    },
+    "cta": {
+        "contact": "Contact Now",
+        "getQuote": "Get Quote",
+        "viewDetails": "View Details"
+    },
+    "contact": {
+        "phone": "Phone",
+        "email": "Email",
+        "wechat": "WeChat",
+        "whatsapp": "WhatsApp"
+    },
+    "domain": {
+        "status": {
+            "available": "Available",
+            "sold": "Sold",
+            "reserved": "Reserved"
+        },
+        "featured": "Featured",
+        "category": "Category",
+        "useCases": "Use Cases",
+        "features": "Features",
+        "priceRange": "Price Range"
+    },
+    "hero": {
+        "title": "Premium AI Domains - Build Your Brand Future",
+        "subtitle": "Professional AI domain marketplace with curated premium domains",
+        "cta": "Contact Now"
+    }
+}

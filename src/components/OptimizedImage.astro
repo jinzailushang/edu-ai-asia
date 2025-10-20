@@ -1,0 +1,105 @@
+---
+/**
+ * 优化的图片组件 - 支持懒加载、响应式和现代格式
+ * Optimized Image component with lazy loading, responsive images, and modern formats
+ */
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string | ImageMetadata;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'auto' | 'sync';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  sizes?: string;
+  quality?: number;
+  format?: 'avif' | 'webp' | 'png' | 'jpg';
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  class: className = '',
+  loading = 'lazy',
+  decoding = 'async',
+  fetchpriority = 'auto',
+  sizes,
+  quality = 80,
+  format = 'webp',
+} = Astro.props;
+
+// 默认响应式尺寸
+const defaultSizes = sizes || '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw';
+
+// 判断是否为外部图片
+const isExternal = typeof src === 'string' && (src.startsWith('http://') || src.startsWith('https://'));
+---
+
+{isExternal ? (
+  <!-- 外部图片 - 使用原生 img 标签 -->
+  <img
+    src={src as string}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding={decoding}
+    fetchpriority={fetchpriority}
+    class={className}
+  />
+) : (
+  <!-- 本地图片 - 使用 Astro Image 组件进行优化 -->
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    format={format}
+    quality={quality}
+    loading={loading}
+    decoding={decoding}
+    class={className}
+    sizes={defaultSizes}
+  />
+)}
+
+<style>
+  /* 图片加载优化 */
+  img {
+    /* 防止布局偏移 */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    
+    /* 平滑加载效果 */
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* 懒加载占位符 */
+  img[loading="lazy"] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite, fadeIn 0.3s ease-in forwards;
+  }
+  
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+</style>

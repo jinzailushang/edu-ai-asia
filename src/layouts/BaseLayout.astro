@@ -1,0 +1,206 @@
+---
+import type { Language } from '../types/domain';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import siteConfig from '../config/site.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: Language;
+  ogImage?: string;
+  keywords?: string[];
+  author?: string;
+  type?: 'website' | 'article' | 'product';
+}
+
+const { 
+  title, 
+  description, 
+  locale = 'zh',
+  ogImage = '/og-image.jpg',
+  keywords = [],
+  author = siteConfig.siteName,
+  type = 'website'
+} = Astro.props;
+
+const translations = await import(`../locales/${locale}/common.json`);
+const t = translations.default;
+
+const pageTitle = title || t.site.title;
+const pageDescription = description || t.site.description;
+const canonicalURL = new URL(Astro.url.pathname, siteConfig.siteUrl);
+const ogImageURL = new URL(ogImage, siteConfig.siteUrl);
+
+// 合并关键词
+const allKeywords = [...new Set([...siteConfig.seo.keywords, ...keywords])];
+
+// 多语言 URL
+const alternateURL = locale === 'zh' 
+  ? new URL(`/en${Astro.url.pathname}`, siteConfig.siteUrl)
+  : new URL(Astro.url.pathname.replace('/en', ''), siteConfig.siteUrl);
+---
+
+<!DOCTYPE html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- 性能优化：资源提示 -->
+    <!-- DNS 预解析 -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://hm.baidu.com" />
+    
+    <!-- 预连接到关键第三方域名 -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://hm.baidu.com" crossorigin />
+    
+    <!-- 预加载关键 CSS -->
+    <link rel="preload" href="/src/styles/global.css" as="style" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={allKeywords.join(', ')} />
+    <meta name="author" content={author} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={pageTitle} />
+    <meta property="og:site_name" content={siteConfig.siteName} />
+    <meta property="og:locale" content={locale === 'zh' ? 'zh_CN' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'zh' ? 'en_US' : 'zh_CN'} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={pageTitle} />
+    {siteConfig.social?.twitter && (
+      <meta name="twitter:site" content={siteConfig.social.twitter} />
+    )}
+    
+    <!-- Alternate Language (hreflang) -->
+    <link rel="alternate" hreflang="zh" href={new URL('/', siteConfig.siteUrl)} />
+    <link rel="alternate" hreflang="en" href={new URL('/en/', siteConfig.siteUrl)} />
+    <link rel="alternate" hreflang="zh-CN" href={new URL('/', siteConfig.siteUrl)} />
+    <link rel="alternate" hreflang="en-US" href={new URL('/en/', siteConfig.siteUrl)} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', siteConfig.siteUrl)} />
+    
+    <!-- 百度移动适配 -->
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    
+    <!-- 百度禁止转码 -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    
+    <!-- Google Analytics -->
+    {siteConfig.analytics.googleAnalyticsId && (
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.googleAnalyticsId}`}></script>
+      <script is:inline define:vars={{ gaId: siteConfig.analytics.googleAnalyticsId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    )}
+    
+    <!-- 百度统计 -->
+    {siteConfig.analytics.baiduAnalyticsId && (
+      <script is:inline define:vars={{ baiduId: siteConfig.analytics.baiduAnalyticsId }}>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?" + baiduId;
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    )}
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": siteConfig.siteName,
+      "url": siteConfig.siteUrl,
+      "logo": new URL('/favicon.svg', siteConfig.siteUrl).toString(),
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": siteConfig.contact.phone,
+        "email": siteConfig.contact.email,
+        "contactType": "Customer Service",
+        "availableLanguage": ["zh", "en"]
+      },
+      "sameAs": [
+        siteConfig.social?.twitter,
+        siteConfig.social?.linkedin
+      ].filter(Boolean)
+    })} />
+    
+    <!-- WebSite Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": siteConfig.siteName,
+      "url": siteConfig.siteUrl,
+      "description": pageDescription,
+      "inLanguage": [locale === 'zh' ? 'zh-CN' : 'en-US'],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${siteConfig.siteUrl}/?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded">
+      跳转到主内容
+    </a>
+    <Header locale={locale} />
+    <main id="main-content" class="flex-grow" role="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    
+    <!-- 性能监控脚本 -->
+    <script>
+      import { initPerformanceMonitoring } from '../scripts/performance-monitor';
+      
+      // 初始化性能监控
+      initPerformanceMonitoring();
+    </script>
+    
+    <!-- 分析跟踪脚本 -->
+    <script>
+      import { initAnalytics } from '../utils/analytics';
+      
+      // 初始化分析跟踪
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAnalytics);
+      } else {
+        initAnalytics();
+      }
+    </script>
+  </body>
+</html>

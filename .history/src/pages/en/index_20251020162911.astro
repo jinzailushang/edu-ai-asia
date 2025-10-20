@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import TrustSection from '../../components/TrustSection.astro';
+import ValueProposition from '../../components/ValueProposition.astro';
+import DomainCard from '../../components/DomainCard.astro';
+import type { Domain } from '../../types/domain';
+import domainsData from '../../data/domains.json';
+
+const domains = domainsData as Domain[];
+const locale = 'en';
+
+// Separate featured and regular domains
+const featuredDomains = domains.filter(d => d.featured && d.status === 'available');
+const regularDomains = domains.filter(d => !d.featured && d.status === 'available');
+
+// Get all unique categories
+const categories = [...new Set(domains.map(d => d.category))];
+
+// SEO optimized keywords
+const pageKeywords = [
+  'AI domain for sale',
+  'edu-ai.asia',
+  'AI education domain',
+  'AI healthcare domain',
+  'aidesigner domain',
+  'premium domain purchase',
+  'AI brand domain'
+];
+---
+
+<BaseLayout locale={locale} keywords={pageKeywords}>
+  <Hero locale={locale} />
+  
+  <!-- Featured Domains -->
+  {featuredDomains.length > 0 && (
+    <section class="py-16 bg-white" aria-labelledby="featured-domains-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="text-center mb-12">
+          <div class="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-gradient-start to-gradient-end text-white rounded-full text-sm font-semibold mb-4" role="status">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            Featured
+          </div>
+          <h2 id="featured-domains-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Premium Selected Domains
+          </h2>
+          <p class="text-xl text-gray-600">
+            Most valuable and promising AI domains
+          </p>
+        </header>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+          {featuredDomains.map((domain) => (
+            <article role="listitem">
+              <DomainCard domain={domain} locale={locale} />
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  
+  <!-- All Domains List -->
+  <section class="py-16 bg-gray-50" aria-labelledby="all-domains-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header class="text-center mb-12">
+        <h2 id="all-domains-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          All Domains
+        </h2>
+        <p class="text-xl text-gray-600">
+          Professionally curated AI industry domains to power your brand
+        </p>
+      </header>
+      
+      <!-- Category Filter -->
+      <nav class="flex flex-wrap justify-center gap-3 mb-12" aria-label="Domain category filter">
+        <button 
+          class="filter-btn px-6 py-2 rounded-full font-medium transition-all duration-300 bg-primary text-white"
+          data-category="all"
+          aria-label="Show all domains"
+          aria-pressed="true"
+        >
+          All
+        </button>
+        {categories.map((category) => (
+          <button 
+            class="filter-btn px-6 py-2 rounded-full font-medium transition-all duration-300 bg-white text-gray-700 hover:bg-gray-100"
+            data-category={category}
+            aria-label={`Filter ${category} category`}
+            aria-pressed="false"
+          >
+            {category}
+          </button>
+        ))}
+      </nav>
+      
+      <div id="domain-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+        {domains.map((domain) => (
+          <article class="domain-item" data-category={domain.category} role="listitem">
+            <DomainCard domain={domain} locale={locale} />
+          </article>
+        ))}
+      </div>
+      
+      <!-- No Results Message -->
+      <div id="no-results" class="hidden text-center py-12" role="status" aria-live="polite">
+        <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-xl text-gray-600">No domains match your criteria</p>
+      </div>
+    </div>
+  </section>
+  
+  <ValueProposition locale={locale} />
+  <TrustSection locale={locale} />
+  
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-primary to-gradient-end" aria-labelledby="cta-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="cta-heading" class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        Found Your Perfect Domain?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8">
+        Contact us now for professional domain acquisition consulting
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href={`tel:${siteConfig.contact.phone}`}
+          class="inline-flex items-center px-8 py-4 bg-white text-primary text-lg font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300"
+          aria-label="Call now for domain inquiry"
+        >
+          Call Now
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+        </a>
+        <a 
+          href="tel:13352963461"
+          class="inline-flex items-center px-8 py-4 bg-transparent text-white text-lg font-semibold rounded-lg border-2 border-white hover:bg-white hover:text-primary transition-all duration-300"
+          aria-label="Call 13352963461"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          13352963461
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- Schema.org Structured Data - ItemList -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Premium AI Domain List",
+  "description": "Professionally curated AI industry domains to power your brand",
+  "numberOfItems": domains.filter(d => d.status === 'available').length,
+  "itemListElement": domains.filter(d => d.status === 'available').map((domain, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": domain.name,
+      "description": domain.content.en.description,
+      "url": new URL(`/en/domains/${domain.id}`, Astro.site || 'https://edu-ai.asia').toString(),
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "price": domain.priceRange || "Contact for price",
+        "priceCurrency": "USD"
+      }
+    }
+  }))
+})} />
+
+<!-- Schema.org Structured Data - CollectionPage -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Premium AI Domain Names",
+  "description": "Professional AI domain marketplace offering premium domains for your brand",
+  "url": new URL('/en', Astro.site || 'https://edu-ai.asia').toString(),
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": domains.filter(d => d.status === 'available').length
+  }
+})} />
+
+<script>
+  // Domain filtering functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const domainItems = document.querySelectorAll('.domain-item');
+    const noResults = document.getElementById('no-results');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+        
+        // Update button styles
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-primary', 'text-white');
+          b.classList.add('bg-white', 'text-gray-700');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.remove('bg-white', 'text-gray-700');
+        btn.classList.add('bg-primary', 'text-white');
+        btn.setAttribute('aria-pressed', 'true');
+        
+        // Filter domains
+        let visibleCount = 0;
+        domainItems.forEach(item => {
+          const itemCategory = item.getAttribute('data-category');
+          if (category === 'all' || itemCategory === category) {
+            item.style.display = 'block';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Show/hide no results message
+        if (noResults) {
+          noResults.classList.toggle('hidden', visibleCount > 0);
+        }
+      });
+    });
+  });
+</script>

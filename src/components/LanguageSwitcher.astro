@@ -1,0 +1,161 @@
+---
+import type { Language } from '../types/domain';
+
+interface Props {
+  locale: Language;
+  currentPath: string;
+}
+
+const { locale, currentPath } = Astro.props;
+
+// 构建切换 URL
+const pathWithoutLang = currentPath.replace(/^\/(zh|en)/, '') || '/';
+const zhUrl = pathWithoutLang;
+const enUrl = `/en${pathWithoutLang}`;
+---
+
+<div class="language-switcher flex items-center space-x-2" data-current-locale={locale}>
+  <a 
+    href={zhUrl}
+    data-lang="zh"
+    class={`lang-link px-2 py-1 rounded transition-colors ${locale === 'zh' ? 'bg-primary text-white' : 'text-gray-600 hover:text-primary'}`}
+    aria-label="切换到中文"
+    aria-current={locale === 'zh' ? 'true' : 'false'}
+  >
+    中文
+  </a>
+  <span class="text-gray-300" aria-hidden="true">|</span>
+  <a 
+    href={enUrl}
+    data-lang="en"
+    class={`lang-link px-2 py-1 rounded transition-colors ${locale === 'en' ? 'bg-primary text-white' : 'text-gray-600 hover:text-primary'}`}
+    aria-label="Switch to English"
+    aria-current={locale === 'en' ? 'true' : 'false'}
+  >
+    EN
+  </a>
+</div>
+
+<script>
+  // 语言检测和切换功能
+  (function() {
+    const STORAGE_KEY = 'preferred-language';
+    const VISITED_KEY = 'has-visited';
+    
+    /**
+     * 从浏览器检测用户首选语言
+     */
+    function detectBrowserLanguage() {
+      const browserLang = navigator.language.toLowerCase();
+      if (browserLang.startsWith('zh')) {
+        return 'zh';
+      } else if (browserLang.startsWith('en')) {
+        return 'en';
+      }
+      return 'zh'; // 默认中文
+    }
+    
+    /**
+     * 获取当前页面语言
+     */
+    function getCurrentLanguage() {
+      const path = window.location.pathname;
+      return path.startsWith('/en') ? 'en' : 'zh';
+    }
+    
+    /**
+     * 构建目标语言的 URL
+     */
+    function buildLanguageUrl(targetLang) {
+      const currentPath = window.location.pathname;
+      const pathWithoutLang = currentPath.replace(/^\/(zh|en)/, '') || '/';
+      
+      if (targetLang === 'zh') {
+        return pathWithoutLang;
+      } else {
+        return `/en${pathWithoutLang}`;
+      }
+    }
+    
+    /**
+     * 首次访问时的语言检测和重定向
+     */
+    function handleFirstVisit() {
+      const hasVisited = sessionStorage.getItem(VISITED_KEY);
+      
+      // 如果不是首次访问本次会话，跳过
+      if (hasVisited) return;
+      
+      // 标记已访问
+      sessionStorage.setItem(VISITED_KEY, 'true');
+      
+      const savedLang = localStorage.getItem(STORAGE_KEY);
+      const currentLang = getCurrentLanguage();
+      
+      let preferredLang;
+      
+      if (savedLang) {
+        // 优先使用保存的语言偏好
+        preferredLang = savedLang;
+      } else {
+        // 检测浏览器语言
+        preferredLang = detectBrowserLanguage();
+        // 保存检测到的语言
+        localStorage.setItem(STORAGE_KEY, preferredLang);
+      }
+      
+      // 如果首选语言与当前语言不同，重定向
+      if (preferredLang !== currentLang) {
+        const targetUrl = buildLanguageUrl(preferredLang);
+        window.location.replace(targetUrl);
+      }
+    }
+    
+    /**
+     * 初始化语言切换器
+     */
+    function initLanguageSwitcher() {
+      const switcher = document.querySelector('.language-switcher');
+      if (!switcher) return;
+      
+      const langLinks = switcher.querySelectorAll('.lang-link');
+      
+      langLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetLang = link.getAttribute('data-lang');
+          const currentLocale = switcher.getAttribute('data-current-locale');
+          
+          if (targetLang) {
+            // 保存语言偏好
+            localStorage.setItem(STORAGE_KEY, targetLang);
+            
+            // Track language switch
+            if (typeof window !== 'undefined' && (window as any).analytics) {
+              import('../utils/analytics').then(({ analytics }) => {
+                analytics.trackLanguageSwitch(currentLocale || 'unknown', targetLang);
+              });
+            }
+            
+            // 触发自定义事件
+            window.dispatchEvent(new CustomEvent('languageChanged', { 
+              detail: { language: targetLang } 
+            }));
+            
+            console.log(`Language preference saved: ${targetLang}`);
+          }
+        });
+      });
+    }
+    
+    // 页面加载时执行
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        handleFirstVisit();
+        initLanguageSwitcher();
+      });
+    } else {
+      handleFirstVisit();
+      initLanguageSwitcher();
+    }
+  })();
+</script>

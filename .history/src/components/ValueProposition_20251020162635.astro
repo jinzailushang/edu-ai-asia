@@ -1,0 +1,130 @@
+---
+import type { Language } from '../types/domain';
+
+interface Props {
+  locale: Language;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="py-16 bg-gradient-to-br from-blue-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- 左侧：文字内容 -->
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+          {locale === 'zh' 
+            ? 'AI 时代，域名是您品牌的第一印象'
+            : 'In the AI Era, Your Domain is Your First Impression'}
+        </h2>
+        
+        <p class="text-lg text-gray-600 mb-6">
+          {locale === 'zh'
+            ? '随着人工智能技术的快速发展，AI 相关的优质域名变得越来越稀缺和珍贵。一个好的域名不仅能提升品牌形象，还能带来更好的 SEO 效果和用户信任。'
+            : 'With the rapid development of AI technology, premium AI-related domains are becoming increasingly scarce and valuable. A good domain not only enhances brand image but also brings better SEO results and user trust.'}
+        </p>
+        
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start">
+            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">
+                {locale === 'zh' ? '行业定位精准' : 'Precise Industry Positioning'}
+              </h3>
+              <p class="text-gray-600">
+                {locale === 'zh'
+                  ? '所有域名都与 AI 行业紧密相关，帮助您快速建立行业权威形象'
+                  : 'All domains are closely related to the AI industry, helping you quickly establish industry authority'}
+              </p>
+            </div>
+          </li>
+          
+          <li class="flex items-start">
+            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">
+                {locale === 'zh' ? 'SEO 优势明显' : 'Strong SEO Advantages'}
+              </h3>
+              <p class="text-gray-600">
+                {locale === 'zh'
+                  ? '包含核心关键词，有利于搜索引擎排名，带来更多自然流量'
+                  : 'Contains core keywords, beneficial for search engine rankings and organic traffic'}
+              </p>
+            </div>
+          </li>
+          
+          <li class="flex items-start">
+            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">
+                {locale === 'zh' ? '投资价值高' : 'High Investment Value'}
+              </h3>
+              <p class="text-gray-600">
+                {locale === 'zh'
+                  ? 'AI 行业持续增长，优质域名的价值也在不断提升'
+                  : 'AI industry continues to grow, and the value of premium domains keeps rising'}
+              </p>
+            </div>
+          </li>
+        </ul>
+        
+        <a 
+          href={`tel:${siteConfig.contact.phone}`}
+          class="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
+        >
+          {locale === 'zh' ? '立即咨询' : 'Call Now'}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- 右侧：视觉元素 -->
+      <div class="relative">
+        <div class="relative bg-white rounded-2xl shadow-2xl p-8">
+          <!-- 统计数据 -->
+          <div class="grid grid-cols-2 gap-6">
+            <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl">
+              <div class="text-4xl font-bold text-primary mb-2">10+</div>
+              <div class="text-gray-600">
+                {locale === 'zh' ? '优质域名' : 'Premium Domains'}
+              </div>
+            </div>
+            
+            <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl">
+              <div class="text-4xl font-bold text-purple-600 mb-2">100%</div>
+              <div class="text-gray-600">
+                {locale === 'zh' ? '安全交易' : 'Secure Deals'}
+              </div>
+            </div>
+            
+            <div class="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl">
+              <div class="text-4xl font-bold text-green-600 mb-2">24h</div>
+              <div class="text-gray-600">
+                {locale === 'zh' ? '快速响应' : 'Quick Response'}
+              </div>
+            </div>
+            
+            <div class="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl">
+              <div class="text-4xl font-bold text-orange-600 mb-2">AI</div>
+              <div class="text-gray-600">
+                {locale === 'zh' ? '行业聚焦' : 'Industry Focus'}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 装饰元素 -->
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-primary/20 to-gradient-end/20 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-gradient-start/20 to-primary/20 rounded-full blur-2xl"></div>
+      </div>
+    </div>
+  </div>
+</section>

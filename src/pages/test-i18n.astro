@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+
+const locale = 'zh';
+const translations = await import(`../locales/${locale}/common.json`);
+const t = translations.default;
+---
+
+<BaseLayout locale={locale} title="多语言测试页面">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">多语言功能测试</h1>
+        <LanguageSwitcher locale={locale} currentPath={Astro.url.pathname} />
+      </div>
+      
+      <div class="space-y-6">
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">网站信息</h2>
+          <dl class="grid grid-cols-2 gap-4">
+            <div>
+              <dt class="font-medium text-gray-600">标题:</dt>
+              <dd class="text-gray-900">{t.site.title}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-600">描述:</dt>
+              <dd class="text-gray-900">{t.site.description}</dd>
+            </div>
+          </dl>
+        </section>
+        
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">导航菜单</h2>
+          <ul class="flex gap-4">
+            <li class="px-4 py-2 bg-gray-100 rounded">{t.nav.home}</li>
+            <li class="px-4 py-2 bg-gray-100 rounded">{t.nav.about}</li>
+            <li class="px-4 py-2 bg-gray-100 rounded">{t.nav.domains}</li>
+            <li class="px-4 py-2 bg-gray-100 rounded">{t.nav.contact}</li>
+          </ul>
+        </section>
+        
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">行动号召按钮</h2>
+          <div class="flex gap-3 flex-wrap">
+            <button class="px-6 py-2 bg-primary text-white rounded-lg">{t.cta.contact}</button>
+            <button class="px-6 py-2 bg-primary text-white rounded-lg">{t.cta.getQuote}</button>
+            <button class="px-6 py-2 bg-primary text-white rounded-lg">{t.cta.viewDetails}</button>
+            <button class="px-6 py-2 bg-primary text-white rounded-lg">{t.cta.callNow}</button>
+          </div>
+        </section>
+        
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">域名状态</h2>
+          <div class="flex gap-3">
+            <span class="px-4 py-2 bg-green-100 text-green-800 rounded">{t.domain.status.available}</span>
+            <span class="px-4 py-2 bg-red-100 text-red-800 rounded">{t.domain.status.sold}</span>
+            <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded">{t.domain.status.reserved}</span>
+          </div>
+        </section>
+        
+        <section class="border-b pb-6">
+          <h2 class="text-xl font-semibold mb-4 text-primary">联系方式</h2>
+          <dl class="grid grid-cols-2 gap-4">
+            <div>
+              <dt class="font-medium text-gray-600">{t.contact.phone}:</dt>
+              <dd class="text-gray-900">13352963461</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-600">{t.contact.email}:</dt>
+              <dd class="text-gray-900">contact@edu-ai.asia</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-600">{t.contact.wechat}:</dt>
+              <dd class="text-gray-900">WeChat ID</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-600">{t.contact.whatsapp}:</dt>
+              <dd class="text-gray-900">+86 13352963461</dd>
+            </div>
+          </dl>
+        </section>
+        
+        <section>
+          <h2 class="text-xl font-semibold mb-4 text-primary">语言检测信息</h2>
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="mb-2"><strong>当前语言:</strong> <span id="current-lang">{locale}</span></p>
+            <p class="mb-2"><strong>浏览器语言:</strong> <span id="browser-lang"></span></p>
+            <p class="mb-2"><strong>保存的语言偏好:</strong> <span id="saved-lang"></span></p>
+            <p class="mb-2"><strong>是否首次访问:</strong> <span id="first-visit"></span></p>
+          </div>
+        </section>
+        
+        <section class="bg-gray-50 p-6 rounded-lg">
+          <h2 class="text-xl font-semibold mb-4 text-primary">测试说明</h2>
+          <ol class="list-decimal list-inside space-y-2 text-gray-700">
+            <li>点击右上角的语言切换按钮，切换到另一种语言</li>
+            <li>刷新页面，检查语言偏好是否被保存</li>
+            <li>清除 localStorage，刷新页面，检查是否自动检测浏览器语言</li>
+            <li>在新标签页中打开网站，检查是否自动跳转到首选语言</li>
+          </ol>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // 显示语言检测信息
+  document.addEventListener('DOMContentLoaded', () => {
+    const browserLangEl = document.getElementById('browser-lang');
+    const savedLangEl = document.getElementById('saved-lang');
+    const firstVisitEl = document.getElementById('first-visit');
+    
+    if (browserLangEl) {
+      browserLangEl.textContent = navigator.language;
+    }
+    
+    if (savedLangEl) {
+      const savedLang = localStorage.getItem('preferred-language');
+      savedLangEl.textContent = savedLang || '未设置';
+    }
+    
+    if (firstVisitEl) {
+      const hasVisited = sessionStorage.getItem('has-visited');
+      firstVisitEl.textContent = hasVisited ? '否' : '是';
+    }
+    
+    // 监听语言切换事件
+    window.addEventListener('languageChanged', (e) => {
+      console.log('Language changed event:', e.detail);
+      if (savedLangEl) {
+        savedLangEl.textContent = e.detail.language;
+      }
+    });
+  });
+</script>

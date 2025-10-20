@@ -1,0 +1,56 @@
+{
+    "site": {
+        "title": "Premium AI Domain Names",
+        "description": "Professional AI domain marketplace offering premium domains for your brand"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "domains": "Domains",
+        "contact": "Contact"
+    },
+    "cta": {
+        "contact": "Contact Now",
+        "getQuote": "Get Quote",
+        "viewDetails": "View Details",
+        "callNow": "Call Now",
+        "learnMore": "Learn More"
+    },
+    "contact": {
+        "phone": "Phone",
+        "email": "Email",
+        "wechat": "WeChat",
+        "whatsapp": "WhatsApp",
+        "title": "Contact Us",
+        "subtitle": "We're here to provide professional domain consulting services"
+    },
+    "domain": {
+        "status": {
+            "available": "Available",
+            "sold": "Sold",
+            "reserved": "Reserved"
+        },
+        "featured": "Featured",
+        "category": "Category",
+        "useCases": "Use Cases",
+        "features": "Features",
+        "priceRange": "Price Range",
+        "allDomains": "All Domains",
+        "featuredDomains": "Premium Selected Domains",
+        "noResults": "No domains match your criteria",
+        "filterAll": "All"
+    },
+    "hero": {
+        "title": "Premium AI Domains - Build Your Brand Future",
+        "subtitle": "Professional AI domain marketplace with curated premium domains",
+        "cta": "Contact Now"
+    },
+    "footer": {
+        "copyright": "Copyright",
+        "allRightsReserved": "All Rights Reserved"
+    },
+    "language": {
+        "switchTo": "Switch Language",
+        "current": "Current Language"
+    }
+}

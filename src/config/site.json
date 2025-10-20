@@ -1,0 +1,42 @@
+{
+    "siteName": "edu-ai.asia",
+    "siteUrl": "https://edu-ai.asia",
+    "defaultLocale": "zh",
+    "contact": {
+        "phone": "13352963461",
+        "phoneInternational": "+86 133 5296 3461",
+        "phoneTel": "+8613352963461",
+        "email": "858005598@qq.com",
+        "wechat": "better99825168",
+        "whatsapp": "8613352963461"
+    },
+    "seo": {
+        "defaultTitle": {
+            "zh": "优质 AI 域名销售 | edu-ai.asia",
+            "en": "Premium AI Domain Names | edu-ai.asia"
+        },
+        "defaultDescription": {
+            "zh": "专业的 AI 域名销售平台，提供 edu-ai.chat、ai-healthcare.asia、aidesigner.asia 等优质域名，助力您的品牌发展",
+            "en": "Professional AI domain marketplace offering premium domains including edu-ai.chat, ai-healthcare.asia, aidesigner.asia for your brand"
+        },
+        "keywords": [
+            "AI域名",
+            "域名出售",
+            "优质域名",
+            "品牌域名",
+            "AI教育域名",
+            "AI医疗域名",
+            "AI domain",
+            "domain for sale",
+            "premium domain"
+        ]
+    },
+    "analytics": {
+        "googleAnalyticsId": "",
+        "baiduAnalyticsId": ""
+    },
+    "social": {
+        "twitter": "",
+        "linkedin": ""
+    }
+}
